@@ -1,15 +1,15 @@
 class Radio:
     '''Interface class to control a radio.'''
 
-    def __init__(**kwargs):
+    def __init__(self, uid, **kwargs):
         print(f'init for Radio with: {kwargs}')
 
-    def send():
+    def send(self, **kwargs):
         '''Send a message.'''
         raise NotImplementError('Should be implemented by derived class.')
 
 
-    def receive():
+    def receive(self, **kwargs):
         '''Receive a message.'''
         raise NotImplementError('Should be implemented by derived class.')
 
