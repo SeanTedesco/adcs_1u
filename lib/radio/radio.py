@@ -1,5 +1,5 @@
-#import serial
-
+import serial
+from serial.serialutil import SerialException
 class Radio:
     '''Interface class to control a radio.'''
 
@@ -8,9 +8,10 @@ class Radio:
 
         self.port = port
         self.baudrate = baudrate
-        self.arduino = 10
-        #self.arduino = serial.Serial(port=self.port, baudrate=self.baudrate, timeout=10, rtscts=True)
-
+        try:
+            self.arduino = serial.Serial(port=self.port, baudrate=self.baudrate, timeout=10, rtscts=True)
+        except SerialException as e:
+            print(e)
 
     def send(self, **kwargs):
         '''Send a message.'''
