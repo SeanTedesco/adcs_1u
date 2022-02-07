@@ -1,8 +1,16 @@
+#import serial
+
 class Radio:
     '''Interface class to control a radio.'''
 
-    def __init__(self, uid, **kwargs):
+    def __init__(self, port, baudrate, **kwargs):
         print(f'init for Radio with: {kwargs}')
+
+        self.port = port
+        self.baudrate = baudrate
+        self.arduino = 10
+        #self.arduino = serial.Serial(port=self.port, baudrate=self.baudrate, timeout=10, rtscts=True)
+
 
     def send(self, **kwargs):
         '''Send a message.'''
