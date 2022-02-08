@@ -1,10 +1,8 @@
 class Gps:
     '''Interface class to control a GPS.'''
 
-    def __init__(self, uid, **kwargs):
-        print(f'init for GPS with: {kwargs}')
-        
-        self.uid = uid
+    def __init__(self, **kwargs):
+        pass 
 
     def get_location(self, **kwargs):
         '''Send a message.'''

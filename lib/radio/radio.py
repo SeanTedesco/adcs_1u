@@ -1,17 +1,18 @@
 import serial
 from serial.serialutil import SerialException
+import argparse
+
 class Radio:
     '''Interface class to control a radio.'''
 
     def __init__(self, port, baudrate, **kwargs):
-        print(f'init for Radio with: {kwargs}')
-
         self.port = port
         self.baudrate = baudrate
         try:
-            self.arduino = serial.Serial(port=self.port, baudrate=self.baudrate, timeout=10, rtscts=True)
+            self.arduino = 'ARDUINO OBJECT'
+            #self.arduino = serial.Serial(port=self.port, baudrate=self.baudrate, timeout=10, rtscts=True)
         except SerialException as e:
-            print(e)
+            raise e('is the radio connected?')
 
     def send(self, **kwargs):
         '''Send a message.'''
@@ -24,15 +25,15 @@ class Radio:
 
 
 def parse_cmdline():
-    pass
+    argparse
 
 def main():
-    from . import open_resource
+    from .rf24 import RF24
 
     options = parse_cmdline()
-    radio = open_resource(uid='radio_uid')
+    radio = RF24(uid='radio_uid', port='/dev/ttyUSB2', baudrate=115200)
 
-    options.functions(options, radio)
+    #options.functions(options, radio)
 
 if __name__ == '__main__':
     main()

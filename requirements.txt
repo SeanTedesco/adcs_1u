@@ -1,1 +1,5 @@
 pyserial
+colorama
+datetime
+asyncio
+argparse

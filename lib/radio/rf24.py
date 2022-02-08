@@ -3,8 +3,6 @@ from .radio import Radio
 class RF24(Radio):
     
     def __init__(self, uid, port, baudrate, **kwargs):
-        print(f'init for RF24 with: {kwargs}')
-        
         self.uid = uid
         
         super().__init__(port, baudrate, **kwargs)
