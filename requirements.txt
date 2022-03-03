@@ -3,3 +3,4 @@ colorama
 datetime
 asyncio
 argparse
+git+https://github.com/SeanTedesco/satellite-systems.git
