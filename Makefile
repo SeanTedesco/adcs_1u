@@ -1,10 +1,14 @@
-.PHONY: clean setup
+VENV_DIR ?= $(abspath .venv)
 
+
+.PHONY: clean
 clean:
 	rm -rf __pycache__
-	rm -rf .venv
+	rm -rf activate $(VENV_DIR)
 
-setup: requirements.txt
-	python -m venv .venv
-	source .venv/bin/activate
-	pip install -r requirements.txt
+
+.PHONY setup
+setup: $(VENV_DIR)
+	python -m venv $(VENV_DIR) 
+	$(VENV_DIR)/bin/pip install -r requirements.txt
+	ln -sf $(VENV_DIR)/bin/activate ./activate
